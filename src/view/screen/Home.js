@@ -1,5 +1,20 @@
 import {Container,Row,Col,Carousel,Navbar,Nav,NavDropdown,Form,Button} from 'react-bootstrap';
+import {menu,productimage} from '../data/data'
+import { useState } from 'react';
 export default function Home(){
+/* 
+console.log(productimage);
+console.log(menu); */
+
+const[proimage,setProImage]=useState(productimage);
+
+console.log(proimage);
+
+function updateProduct(){
+  var img =[]
+  setProImage(img)
+}
+
     return(
     <Container>
       <Row>
@@ -91,29 +106,39 @@ export default function Home(){
       </Carousel.Item>
     </Carousel></Col>
       </Row>
-      <Row>
+
+
+
+
+
+<Row>
 <Col className='p-5'>
 <h1>Prohramming</h1>
 <p>The tag is used to embed an image in an HTML page. Images are not technically inserted into a web page; images are linked to web pages.</p>
 </Col>
 <Row>
-<Col>
-<img
-          className="d-block w-100"
-          src="https://img.freepik.com/free-vector/stylish-abstract-web-banner-with-text-space_1017-39039.jpg?w=2000"
-          alt="Third slide"
-        />
-</Col>
-<Col>
-<img
-          className="d-block w-100"
-          src="https://img.freepik.com/free-vector/stylish-abstract-web-banner-with-text-space_1017-39039.jpg?w=2000"
-          alt="Third slide"
-        />
-</Col>
 
+  {
+    proimage&&proimage.map(d=>(
+
+      <Col>
+      <div style={{width:200,height:300,margin:20,backgroundColor:"red"}}>
+      <img
+          className="d-block w-100"
+          src={d.img}
+          alt="Third slide"
+        />
+        </div>
+</Col>
+))
+  }
 </Row>
-      </Row>
+</Row>
+
+
+
+
+
 
       <Row>
         <Col>
