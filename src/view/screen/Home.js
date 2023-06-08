@@ -7,6 +7,7 @@ console.log(productimage);
 console.log(menu); */
 
 const[proimage,setProImage]=useState(productimage);
+const[product,setProduct]=useState("");
 
 console.log(proimage);
 
@@ -14,6 +15,13 @@ function updateProduct(){
   var img =[]
   setProImage(img)
 }
+
+function productshow(){
+  console.log(product);
+  setProImage(proimage.filter(d=>d.name===product))
+  setProduct("")
+}
+
 
     return(
     <Container>
@@ -54,8 +62,10 @@ function updateProduct(){
               placeholder="Search"
               className="me-2"
               aria-label="Search"
+              value={product}
+              onChange={d=>setProduct(d.target.value)}
             />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="outline-success" onClick={productshow}>Search</Button>
           </Form>
         </Navbar.Collapse>
       </Container>
@@ -65,7 +75,7 @@ function updateProduct(){
         <h1>col</h1>
         </Col>
       </Row>
-      <Row>
+    {/*   <Row>
         <Col>
         
         <Carousel>
@@ -106,7 +116,7 @@ function updateProduct(){
       </Carousel.Item>
     </Carousel></Col>
       </Row>
-
+ */}
 
 
 
