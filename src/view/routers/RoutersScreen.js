@@ -3,6 +3,7 @@ import Home from '../screen/Home'
 import Register from "../screen/Register";
 import Login from "../screen/Login";
 import Product from "../screen/Product";
+import Details from "../screen/Details";
 export default function RoutersScreen(){
     return(
      <>
@@ -15,6 +16,7 @@ export default function RoutersScreen(){
         <Routes>
             <Route path="/" Component={Home}/>
             <Route path="/register" Component={Register}/>
+            <Route path="/detail" Component={Details}/>
             <Route path="/login" Component={Login}/>
             <Route path="/product" Component={Product}/>
         </Routes>

@@ -1,31 +1,32 @@
 import {Container,Row,Col,Carousel,Navbar,Nav,NavDropdown,Form,Button} from 'react-bootstrap';
-import {menu,productimage} from '../data/data'
+import {product} from '../data/data'
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 export default function Home(){
+
+  const nav = useNavigate()
 /* 
 console.log(productimage);
 console.log(menu); */
 
-const[proimage,setProImage]=useState(productimage);
-const[product,setProduct]=useState("");
+const[product1,setProduct]=useState(product);
 
-console.log(proimage);
 
 function updateProduct(){
-  var img =[]
-  setProImage(img)
+ /*  var img =[]
+  setProImage(img) */
 }
 
 function productshow(){
-  console.log(product);
+  /* console.log(product);
   setProImage(proimage.filter(d=>d.name===product))
-  setProduct("")
+  setProduct("") */
 }
 
 
     return(
     <Container>
-      <Row>
+  {/*     <Row>
         <Col md={3}lg={3} className='bg-primary'>
           <h1>col</h1>
         </Col>
@@ -74,7 +75,7 @@ function productshow(){
         <Col md={3}lg={3} className='bg-danger'>
         <h1>col</h1>
         </Col>
-      </Row>
+      </Row> */}
     {/*   <Row>
         <Col>
         
@@ -129,10 +130,10 @@ function productshow(){
 <Row>
 
   {
-    proimage&&proimage.map(d=>(
+    product1&&product1.map(d=>(
 
       <Col>
-      <div style={{width:200,height:300,margin:20,backgroundColor:"red"}}>
+      <div style={{width:200,height:300,margin:20,backgroundColor:"red"}} onClick={()=>nav('/detail',{state:d})}>
       <img
           className="d-block w-100"
           src={d.img}
@@ -150,7 +151,7 @@ function productshow(){
 
 
 
-      <Row>
+ {/*      <Row>
         <Col>
         <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -174,7 +175,7 @@ function productshow(){
     </Form>
         </Col>
 
-      </Row>
+      </Row> */}
     </Container>
      )
   }
