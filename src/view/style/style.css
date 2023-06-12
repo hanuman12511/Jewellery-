@@ -23,3 +23,10 @@
 .loginform h1{
     color: brown;
 }
+.register-div{
+    width: 400px;
+    height: 400px;
+    background-color: aqua;
+    margin: auto;
+
+}
