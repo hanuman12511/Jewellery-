@@ -2,56 +2,88 @@ import { useState } from "react"
 import { Button, Col, Container,Row } from "react-bootstrap";
 import { useLocation } from "react-router-dom"
 
+
 export default function Details(){
   const loc = useLocation()
+  
   const [product,setProduct] = useState(loc.state)
+  const [image,setImage] = useState(product.img)
+  const [qty,setUpdateQty] = useState(1)
   console.log(product);
+
+  function addqty(){
+    
+    if(qty>0){
+     var a=qty+1
+        setUpdateQty(a)
+      }
+  }
+  
+  function subqty(){
+
+    if(qty>0){
+      var a=qty-1
+        setUpdateQty(a)
+      }
+  }
     return(
     <Container>
       <Row>
-        <Col lg={5} className="bg-primary">
-          <div className="detail-img"><h1>image</h1></div>
+        <Col lg={5} className="">
+          <div className="detail-img">
+            <img src={image} /></div>
           <div className="detail-img1">
-               <div className="detail-img1-1">
-            
-              </div>
               
-              <div className="detail-img1-1">
-            
+            { product.images.map(d=>(
+              <div className="detail-img1-1" onClick={()=>setImage(d)}>
+                <img src={d} />
             </div>
+            ))
             
-            <div className="detail-img1-1">
-            
-            </div>
-            
-            <div className="detail-img1-1">
-            
-            </div>
-            </div>
+          }
+          </div>
           </Col>
-        <Col lg={4} className="bg-success">
+        <Col lg={4} className="">
           <div className="detail-text">
               <div className="detail-text1">
-                  <h2>Product name</h2>
+                  <h5>{product.name}</h5>
               </div>
               <div className="detail-text2">
-                  <h3>Rate</h3>
+                  <p>Rs.{product.salerate}/-<del><span><sub>Rs.{product.mrp}/-</sub></span></del></p>
                 </div>
+                <h5>NominalSize</h5>
               <div className="detail-text3">
-                    <h3>size</h3>
+                   {
+                    product.NominalSize.map(d=>(
+                      <p onClick={()=>{}}>{d}</p>
+                    ))
+
+                   }
               </div>
-              <div className="detail-text4">
-                <h3>color </h3>
-                </div>
-            </div>
+              
+                <h5>color</h5>
+              <div className="detail-text3">
+                   {
+                    product.color.map(d=>(
+                      <p onClick={()=>{}}>{d}</p>
+                    ))
+
+                   }
+              </div>
+           </div>
           </Col>
-        <Col lg={3} className="bg-primary">
+        <Col lg={3} className="">
         <div className="detail-card">
             <div className="detail-card1">
-               <h2>rate</h2>
+            <p>Rs.{product.salerate}/-</p>
+             
             </div>
             <div className="detail-card2">
-               <p>Update Qty:</p> <button className="detail-card2-btnsub"><p className="qtynum1">-</p></button><p className="qtynum">1</p><button className="detail-card2-btnadd"><p className="qtynum1">+</p></button>
+               <p className="detail-card2-update-text">Update Qty:</p> 
+               <input type="button" className="detail-card2-btnadd" value="-" onClick={subqty}/>
+                 <p className="qtynum">{qty}</p>
+                <input type="button"className="detail-card2-btnadd" value="+"  onClick={addqty}/>
+                  
             </div>
             <div className="detail-card3">
              <Button>Add To Cart</Button>
