@@ -138,3 +138,19 @@
     padding: 10px;
     font-size: 20px;
 }
+.addtocart-item{
+    display: inline-flex;
+}
+.addtocart-img{
+    width: 100px;
+}
+.addtocart-text-name {
+    margin: 0px;
+    padding: 0px;
+    font-size: 16px;
+    font-weight: bold;margin-left:15px ;
+}
+.addtocart-text-rate {
+
+margin-left: 15px;
+}

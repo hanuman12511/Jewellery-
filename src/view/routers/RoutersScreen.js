@@ -3,6 +3,7 @@ import Home from '../screen/Home'
 import Register from "../screen/Register";
 import Login from "../screen/Login";
 import Product from "../screen/Product";
+import Addtocart from "../screen/Addtocart";
 import Details from "../screen/Details";
 import {Container,Row,Col,Carousel,Navbar,Nav,NavDropdown,Form,Button} from 'react-bootstrap';
 import { useState } from "react";
@@ -82,6 +83,7 @@ function logout(){
             <Route path="/detail" Component={Details}/>
             <Route path="/login" Component={Login}/>
             <Route path="/product" Component={Product}/>
+            <Route path="/addtocart" Component={Addtocart}/>
         </Routes>
      </>
     )

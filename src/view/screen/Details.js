@@ -1,14 +1,17 @@
 import { useState } from "react"
 import { Button, Col, Container,Row } from "react-bootstrap";
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 
 
 export default function Details(){
   const loc = useLocation()
+  const nav = useNavigate()
   
   const [product,setProduct] = useState(loc.state)
   const [image,setImage] = useState(product.img)
   const [qty,setUpdateQty] = useState(1)
+  const [size,setSize] = useState('')
+  const [color,setColor] = useState('')
   console.log(product);
 
   function addqty(){
@@ -21,7 +24,7 @@ export default function Details(){
   
   function subqty(){
 
-    if(qty>0){
+    if(qty>1){
       var a=qty-1
         setUpdateQty(a)
       }
@@ -55,7 +58,7 @@ export default function Details(){
               <div className="detail-text3">
                    {
                     product.NominalSize.map(d=>(
-                      <p onClick={()=>{}}>{d}</p>
+                      <p onClick={()=>setSize(d)}>{d}</p>
                     ))
 
                    }
@@ -65,7 +68,7 @@ export default function Details(){
               <div className="detail-text3">
                    {
                     product.color.map(d=>(
-                      <p onClick={()=>{}}>{d}</p>
+                      <p onClick={()=>setColor(d)}>{d}</p>
                     ))
 
                    }
@@ -86,7 +89,7 @@ export default function Details(){
                   
             </div>
             <div className="detail-card3">
-             <Button>Add To Cart</Button>
+             <Button onClick={()=>nav("/addtocart",{state:{pid:product.id,image:product.img,name:product.name,rate:product.salerate,qty:qty,size:size,color:color}})}>Add To Cart</Button>
             </div>
             
             <div className="detail-card4">
