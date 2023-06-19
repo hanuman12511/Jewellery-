@@ -154,3 +154,13 @@
 
 margin-left: 15px;
 }
+.total-amount{
+    width: 100%;
+    display: inline-flex;
+
+}
+.total-amount div{
+    width: 50%;
+    
+    margin-left: 10px;
+}
