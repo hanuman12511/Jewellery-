@@ -1,7 +1,8 @@
 import {Container,Row,Col,Carousel,Navbar,Nav,NavDropdown,Form,Button} from 'react-bootstrap';
 import {product} from '../data/data'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
 export default function Home(){
 
   const nav = useNavigate()
@@ -9,9 +10,15 @@ export default function Home(){
 console.log(productimage);
 console.log(menu); */
 
-const[product1,setProduct]=useState(product);
+const[product1,setProduct]=useState("");
 
-
+useEffect(()=>{
+  async function showdata(){
+    var res = await axios.get("product").catch(d=>console.log(d))
+    console.log(res?.data);
+  }
+  showdata()
+})
 function updateProduct(){
  /*  var img =[]
   setProImage(img) */
