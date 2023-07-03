@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import {Row, Col, Container,Form,Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
@@ -7,12 +8,23 @@ export default function Login(){
 
   const[email,setEmail] = useState('')
   const[password,setPassword] = useState('')
-  function loginUser(){
+  async function loginUser(){
    
     console.log(email);
     console.log(password);
     localStorage.setItem("user",email)
+  const params={
+   
+    "email":email,
+    "pass":password
+}
+  const res= await axios.post("http://ankursingh.xyz/api/Employeelogin.php",params)
+ const  {success} = res.data 
+ if(success){
   nav("/")
+ }
+  
+    
     window.location.reload()
   
 
