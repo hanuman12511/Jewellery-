@@ -59,7 +59,8 @@ const data = []
   
  app.get('/product',async(req,res)=>{
     const product=[
-        {id:1,productname:"product",image:'./img/Wire/w1/FBhreGegmXlbN-medium.jpg'}
+        {id:1,productname:"product",image:'./img/Wire/w1/FBhreGegmXlbN-medium.jpg'},
+        {id:2,productname:"product",image:'./img/Wire/w2/0MmtcEoWYn8UU-medium.jpg'}
     ]
     res.send(product)
     //res.send(data)
