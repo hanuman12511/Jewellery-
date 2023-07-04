@@ -19,7 +19,7 @@ useEffect(()=>{
     setProduct(res?.data)
   }
   showdata()
-})
+},[])
 function updateProduct(){
  
 }
@@ -46,7 +46,7 @@ function productshow(){
       <div style={{width:200,height:300,margin:20,backgroundColor:"red"}} onClick={()=>nav('/detail',{state:d})}>
       <img
           className="d-block w-100"
-          src={d.img}
+          src={d.image}
           alt="Third slide"
         />
         </div>

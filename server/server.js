@@ -9,12 +9,14 @@ app.use(express.json())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors())
-
+app.use(express.static('public'));
+app.use('/img', express.static('img'));
 
 const fs = require('fs')
 const csv = require('fast-csv');
 
 
+console.log(__dirname);
 
 var con = mysql.createConnection({
     host: "127.0.0.1",
@@ -52,11 +54,15 @@ const data = []
   .pipe(csv.parse({ headers: true }))
   .on('error', error => console.error(error))
   .on('data', row => data.push(row))
-  .on('end', () => console.log(data));
+  .on('end', () =>{});
+  //.on('end', () => console.log(data));
+  
  app.get('/product',async(req,res)=>{
-   
-    
-    res.send(data)
+    const product=[
+        {id:1,productname:"product",image:'./img/Wire/w1/FBhreGegmXlbN-medium.jpg'}
+    ]
+    res.send(product)
+    //res.send(data)
 })
 
 app.post("/addtocart",(req,res)=>{
