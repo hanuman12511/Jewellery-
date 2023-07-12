@@ -1,64 +1,64 @@
-import {Container,Row,Col,Carousel,Navbar,Nav,NavDropdown,Form,Button} from 'react-bootstrap';
-import {product} from '../data/data'
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios'
-export default function Home(){
+import React, { useEffect, useState } from "react";
 
-  const nav = useNavigate()
-/* 
-console.log(productimage);
-console.log(menu); */
+import { useNavigate } from "react-router-dom";
 
-const[product1,setProduct]=useState("");
 
+import axios from "axios";
+function Home() {
+const nav = useNavigate()
+const [product,setProduct] =useState('')
+const [banner,setBanner] =useState('')
 useEffect(()=>{
-  async function showdata(){
-    var res = await axios.get("product").catch(d=>console.log(d))
-    console.log(res?.data);
-    setProduct(res?.data)
-  }
-  showdata()
+async function show(){
+   const res = await axios.get("/product")
+   const res1 = await axios.get("/banner")
+   setProduct(res.data)
+   setBanner(res1.data)
+}
+show()
+
 },[])
-function updateProduct(){
- 
+   
+function productfun(data){
+   return<>
+   <div className="product" onClick={()=>nav("/detail",{state:data})}>
+      <div className="product-offer">
+      </div>
+      <div className="product-image">
+   <img src={data.image} className="pro-image"/>
+      </div>
+      <div className="product-name">
+         <div> 
+            <h5>{data.productname}</h5>
+         </div>
+         <div>
+              <p><b>₹. {data.rate}/-</b></p>
+         </div>
+      
+       
+      </div>
+   </div>
+   </>
 }
 
-function productshow(){
-  
+   return (
+   <div className="mainpage">
+      <div className="homepage">
+         <div className="banner-image">
+         { 
+         banner&&<img src={banner.image} className="pro-image"/>
+            }
+         </div>
+         {
+            product&&product.map(data=>(
+               productfun(data)
+            ))
+         }
+
+      </div>
+   
+   </div>
+      )
 }
 
-
-    return(
-    <Container>
-  
-<Row>
-<Col className='p-5'>
-<h1>Prohramming</h1>
-<p>The tag is used to embed an image in an HTML page. Images are not technically inserted into a web page; images are linked to web pages.</p>
-</Col>
-<Row>
-
-  {
-    product1&&product1.map(d=>(
-
-      <Col>
-      <div style={{width:200,height:300,margin:20,backgroundColor:"red"}} onClick={()=>nav('/detail',{state:d})}>
-      <img
-          className="d-block w-100"
-          src={d.image}
-          alt="Third slide"
-        />
-        </div>
-</Col>
-))
-  }
-</Row>
-</Row>
-
-
-
-
-    </Container>
-     )
-  }
+export default Home;

@@ -1,182 +1,109 @@
-import { useState } from "react";
-import { Container,Row,Col } from "react-bootstrap";
-import { useLocation, useNavigate } from "react-router-dom"
+import axios from "axios"
+import { useEffect, useState } from "react"
+import { Container, Row, Col, Button } from "react-bootstrap"
+import { Link, useNavigate } from "react-router-dom"
+export default function Cart() {
+const nav=useNavigate()
+    const [data, setData] = useState('')
+    const [pay, setPay] = useState('')
 
-export default function Addtocart(){
-  const loc = useLocation()
-  const nav = useNavigate()
-  const [qty,setUpdateQty] = useState(1)
-  const [product,setProduct] = useState(loc.state)
-  console.log(product);
-  
-  function addqty(){
+    useEffect(() => {
+        async function show() {
+            let res = await axios.post('showtocart', {})
+            console.log(res.data);
+            setData(res.data)
+            let pay=0
+            res.data.map(d=>{
+                pay+= parseInt(d.Price)
+            })
+            console.log(pay);
+            setPay(pay)
+        }
+        show()
+    }, [])
+
+    async function show() {
+        let res = await axios.post('showtocart', {})
+        console.log(res.data);
+        setData(res.data)
+        let pay=0
+        res.data.map(d=>{
+            pay+= parseInt(d.Price)
+        })
+        console.log(pay);
+        setPay(pay)
+    }
+    //  item remove functions
+  async  function removeitem(index) {
+       
+    let arr=[]
+    data.map((d, index1) => {
+                    if(index !== index1){
+                        arr.push(d)
+                    }        })
+            console.log(arr);        
+    let res = await axios.post('removecartitem', arr).catch(e=>console.log(e))
+                console.log(res?.data);
+           await setData(arr)
     
-    if(qty>0){
-     var a=qty+1
-        setUpdateQty(a)
-      }
-  }
-  
-  function subqty(){
+            show()
+    
+        }
 
-    if(qty>1){
-      var a=qty-1
-        setUpdateQty(a)
-      }
-  }
-    return(
-    <>
-    <Container>
-      <Row>
-        <Col className="" lg={8}>
 
-          <Row>
-            <Col>My Cart</Col>
+    console.log(data);
+    return (
+        <Container fluid>
+
+            <Row className="justify-content-center">
+                
+                    <Col className="col-lg-6">
+                        {
+                            data ? data.map((d, index) => {
+                                if (d !== false) {
+                                    return (
+                                        <div className="border mt-5 mb-4">
+                                            <div className="addtocartshow ">
+                                                <div className="addtocartshow-img">
+                                                    <img src={d.Image} style={{ height: '200px' }} />
+
+                                                </div>
+                                                <div className="addtocartshow-text mt-3 ">
+                                                    <h5><p>{d.name}</p></h5>
+                                                    <h5> ₹<span className="cart-p"> {d.Price}</span></h5><br />
+                                                    <h6><p className="disc">{d.Disc}</p></h6>
+                                                    <h6>{d.description}</h6><br />
+                                                    <h6><p>Qty:{1}</p></h6>
+                                                    <Button className="remove mb-4" variant="outline-danger" onClick={() => removeitem(index)}>Remove</Button>
+
+
+                                                </div>
+
+                                                <div className="addtocartshow-text mt-4">
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    )
+                                }
+                            }) : null
+                        }
+                    </Col>
+                
+<Col className="">
+<div className="m-4 position-fixed bg-success w-25">
+<center> <Button onClick={()=>nav('/orderplace',{state:pay})}>Proceed to Payment</Button></center>
+     <p className="border m-4 p-4 text-light">
+        Total pay:{pay}
+     </p>
+     </div>       
+</Col>
             </Row>
-            <Row>
-            <Col lg={6}>
-              <p>1 item(s) in your cart</p>
-              <div className="addtocart-item">
-                <div><img src={product.image} className="addtocart-img"/></div>
-                <div className="addtocart-text">
-                    <p className="addtocart-text-name" >{product.name}</p>
-                    <p className="addtocart-text-rate" >Rs.{product.rate}/-</p>
-                </div>
-                </div>
-            </Col>
-            <Col lg={3}>
-              <p>Qty</p>
-              <div className="detail-card2">
-                
-               <input type="button" className="detail-card2-btnadd" value="-" onClick={subqty}/>
-                 <p className="qtynum">{qty}</p>
-                <input type="button"className="detail-card2-btnadd" value="+"  onClick={addqty}/>
-                  
-            </div>
-              </Col>
-            <Col lg={3}><p>Price</p>
-            
-            <div>
-            <p>Rs.{(product.rate)*qty}/-</p>
-              </div>
-            </Col>
-              </Row>
-              <div style={{marginTop:50}}>
-              <Row className="mt-4" >
-            <Col lg={6}>
-            
-              <div className="addtocart-item">
-                <div><img src={product.image} className="addtocart-img"/></div>
-                <div className="addtocart-text">
-                    <p className="addtocart-text-name" >{product.name}</p>
-                    <p className="addtocart-text-rate" >Rs.{product.rate}/-</p>
-                </div>
-                </div>
-            </Col>
-            <Col lg={3}>
-             
-              <div className="detail-card2">
-                
-               <input type="button" className="detail-card2-btnadd" value="-" onClick={subqty}/>
-                 <p className="qtynum">{qty}</p>
-                <input type="button"className="detail-card2-btnadd" value="+"  onClick={addqty}/>
-                  
-            </div>
-              </Col>
-            <Col lg={3}>
-            
-            <div>
-            <p>Rs.{(product.rate)*qty}/-</p>
-              </div>
-            </Col>
-              </Row>
-              </div>
-              <div style={{marginTop:50}}>
-              <Row className="mt-4" >
-            <Col lg={6}>
-            
-              <div className="addtocart-item">
-                <div><img src={product.image} className="addtocart-img"/></div>
-                <div className="addtocart-text">
-                    <p className="addtocart-text-name" >{product.name}</p>
-                    <p className="addtocart-text-rate" >Rs.{product.rate}/-</p>
-                </div>
-                </div>
-            </Col>
-            <Col lg={3}>
-             
-              <div className="detail-card2">
-                
-               <input type="button" className="detail-card2-btnadd" value="-" onClick={subqty}/>
-                 <p className="qtynum">{qty}</p>
-                <input type="button"className="detail-card2-btnadd" value="+"  onClick={addqty}/>
-                  
-            </div>
-              </Col>
-            <Col lg={3}>
-            
-            <div>
-            <p>Rs.{(product.rate)*qty}/-</p>
-              </div>
-            </Col>
-              </Row>
-              </div>
-              <Row>
-            <Col>sign</Col>
-          </Row>
-        </Col>
-        <Col className="bg-light" lg={4} >
-          <div>
-              <div>
-                <h5>Payment Summary</h5>
-              </div>
-              
-          </div>
-          <div className="total-amount">
-              <div>
-              <p>Total Amount</p>
-              </div>
-              <div>
-              <p>Total Amount</p>
-              </div>
-          </div>
-          <div className="total-amount">
-              <div>
-              <p>Total GST</p>
-              </div>
-              <div>
-              <p>Total GST</p>
-              </div>
-          </div>
-          <div className="total-amount">
-              <div>
-              <p>Total Shipping</p>
-              </div>
-              <div>
-              <p>Total Shipping</p>
-              </div>
-          </div>
-          <div className="total-amount">
-              <div>
-              <p>Total Coupon Discount</p>
-              </div>
-              <div>
-              <p>Total Coupon Discount</p>
-              </div>
-          </div>
-          <div className="total-amount">
-              <div>
-              <h5>Amount Payable</h5>
-              </div>
-              <div>
-              <h5>Amount Payable</h5>
-              </div>
-          </div>
-         
-          <button>SIGN IN TO CHECKOUT</button>
-          </Col>
-      </Row>
-    </Container>
-    
-    </>)
-  }
+
+           
+        </Container>
+
+    )
+}

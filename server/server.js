@@ -59,10 +59,18 @@ const data = []
   
  app.get('/product',async(req,res)=>{
     const product=[
-        {id:1,productname:"product",image:'./img/Wire/w1/FBhreGegmXlbN-medium.jpg'},
-        {id:2,productname:"product",image:'./img/Wire/w2/0MmtcEoWYn8UU-medium.jpg'}
+        {id:1,productname:"product",rate:200,image:'./img/Wire/w1/FBhreGegmXlbN-medium.jpg'},
+        {id:2,productname:"product",rate:200,image:'./img/Wire/w2/0MmtcEoWYn8UU-medium.jpg'},
+        {id:3,productname:"product",rate:200,image:'./img/Wire/w2/0MmtcEoWYn8UU-medium.jpg'},
+        {id:4,productname:"product",rate:200,image:'./img/Wire/w2/0MmtcEoWYn8UU-medium.jpg'},
+        {id:5,productname:"product",rate:200,image:'./img/Wire/w2/0MmtcEoWYn8UU-medium.jpg'},
     ]
     res.send(product)
+    //res.send(data)
+})
+app.get('/banner',async(req,res)=>{
+    const banner={image:'./img/Wire/w2/0MmtcEoWYn8UU-medium.jpg'} 
+    res.send(banner)
     //res.send(data)
 })
 

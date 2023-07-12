@@ -1,166 +1,61 @@
-.main{
+.mainpage{
     width: 100%;
-    height: 200px;
-    background-color: aqua;
-    border-radius: 20px;
+    height: auto;
 }
-.loginform{
-    width: 400px;
-    height: 500px;
-    background-color: aqua;
+.homepage{
+    width: 950px;
+    background-color: antiquewhite;
     margin: auto;
-    text-align: center;
-    border-radius: 20px;
-    padding: 20px;
+    height: auto;
 }
-.loginform input ,button{
+.link{
+    padding: 20px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+.banner-image{
     width: 100%;
-    padding: 20px;
-    margin-top: 20px;
-    border: 0px;
-    box-sizing: border-box;
-}
-.loginform h1{
-    color: brown;
-}
-.register-div{
-    width: 400px;
     height: 400px;
-    background-color: aqua;
-    margin: auto;
 
 }
-.detail-img{
-    width: 90%;
+.product{
+    width: 290px;
     height: 300px;
-   
-    margin: 5%;
-}
+    margin: 13px;
+    display: inline-block;
+    border: 1px solid rgb(204, 203, 203);
 
-.detail-img img{
+}
+.product-offer{
+    width: 100%;
+    height: 20%;
+    
+}
+.product-image{
+    width: 100%;
+    height: 60%;
+}
+.pro-image{
+
     width: 100%;
     height: 100%;
 }
-
-
-.detail-img1{
+.product-name{
     width: 100%;
-    height: 100px;
-  
-   margin-bottom: 10px;
-   display: inline-flex;
-}
-.detail-img1 img{
-    width: 100%;
-    height: 100%;
-}
-.detail-img1-1{
-    width: 20%;
-    height: 80%;
-   
-   margin-bottom: 10px;
-   margin: 10px;
-}
-.detail-text{
-    width: 90%;
-  
-    margin: 5%;
-}
-.detail-text1{
-    width: 100%;
-  padding-bottom:20px ;
-}
-
-.detail-text2{
-    width: 90%;
-  
-    margin: 5%;
-}
-
-.detail-text3{
-    width: 100%;
-  
-    margin-left: 10px;
+    height: 20%;
     display: inline-flex;
-}
-.detail-text3 p{
-    margin: 5px;
-    font-size: 12PX;
-}
-
-.detail-text4{
-    width: 100%;
-    margin-left: 10px;
-    
-}
-.detail-card{
-    width: 100%;
-     margin: 5%;
-}
-.detail-card1{
-    width: 100%;
-   
-}
-
-.detail-card2{
-    width: 100%;
-    align-items: center;
-    display: inline-flex;
-}
-
-.detail-card2-update-text{margin-right: 20px;}
-.detail-card3{
-    margin-top: 20px;
-    width: 100%;
-  
-}
-
-.detail-card4{
-    width: 100%;
-    margin-top: 10PX;
-    align-items: center;
-}
-.detail-card2-btnsub,.detail-card2-btnadd{
-    width: 30px;
- 
-    background-color: aqua;
-    border: 0px;
-    font-size: 30px;
     text-align: center;
     
 }
-.qtynum{
-    text-align: center;
-    width: 30px;
-}
-.qtynum1{
-    text-align: center;
-    padding: 10px;
-    font-size: 20px;
-}
-.addtocart-item{
-    display: inline-flex;
-}
-.addtocart-img{
-    width: 100px;
-}
-.addtocart-text-name {
-    margin: 0px;
-    padding: 0px;
-    font-size: 16px;
-    font-weight: bold;margin-left:15px ;
-}
-.addtocart-text-rate {
-
-margin-left: 15px;
-}
-.total-amount{
-    width: 100%;
-    display: inline-flex;
-
-}
-.total-amount div{
+.product-name div{
     width: 50%;
-    
-    margin-left: 10px;
+    text-align: start;
+    margin: 10px;
+}
+.product-name div p{
+    text-align: end;
+    margin: 10px;
+}
+.product-name div p b{
+    color: rgb(255, 0, 0);
 }
