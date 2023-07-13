@@ -14,7 +14,7 @@ app.use('/img', express.static('img'));
 
 const fs = require('fs')
 const csv = require('fast-csv');
-
+const product = require('./data/data')
 
 console.log(__dirname);
 
@@ -58,13 +58,12 @@ const data = []
   //.on('end', () => console.log(data));
   
  app.get('/product',async(req,res)=>{
-    const product=[
-        {id:1,productname:"product",rate:200,image:'./img/Wire/w1/FBhreGegmXlbN-medium.jpg'},
-        {id:2,productname:"product",rate:200,image:'./img/Wire/w2/0MmtcEoWYn8UU-medium.jpg'},
-        {id:3,productname:"product",rate:200,image:'./img/Wire/w2/0MmtcEoWYn8UU-medium.jpg'},
-        {id:4,productname:"product",rate:200,image:'./img/Wire/w2/0MmtcEoWYn8UU-medium.jpg'},
-        {id:5,productname:"product",rate:200,image:'./img/Wire/w2/0MmtcEoWYn8UU-medium.jpg'},
-    ]
+    try {
+        const data = fs.readFileSync('./data/data.js', 'utf8');
+        console.log(data);
+      } catch (err) {
+        console.error(err);
+      }
     res.send(product)
     //res.send(data)
 })

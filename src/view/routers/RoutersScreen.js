@@ -6,6 +6,8 @@ import Addtocart from "../screen/Addtocart";
 import Details from "../screen/Details";
 import Login from "../screen/Login";
 import Profile from "../screen/Profile";
+import OrderPlace from "../screen/OrderPlace";
+import Payment from "../screen/Payment";
 
 export default function RoutersScreen(){
    const[user,setUser] = useState(localStorage.getItem('user'))
@@ -36,6 +38,7 @@ function logout(){
             <Route path="/" Component={Home}/>
             <Route path="/register" Component={Register}/>
             <Route path="/detail" Component={Details}/>
+            <Route path="/orderplace" Component={OrderPlace}/>
             <Route path="/login" Component={Login}/>
             
             <Route path="/addtocart" Component={Addtocart}/>
