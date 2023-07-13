@@ -60,11 +60,11 @@ const data = []
  app.get('/product',async(req,res)=>{
     try {
         const data = fs.readFileSync('./data/data.js', 'utf8');
-        console.log(data);
+        console.log(data.product);
       } catch (err) {
         console.error(err);
       }
-    res.send(product)
+    res.send(data)
     //res.send(data)
 })
 
