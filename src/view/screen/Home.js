@@ -8,21 +8,29 @@ function Home() {
 const nav = useNavigate()
 const [product,setProduct] =useState('')
 const [banner,setBanner] =useState('')
+const [offerlogo,setOfferlogo] =useState('')
+
 useEffect(()=>{
 async function show(){
    const res = await axios.get("/product")
    const res1 = await axios.get("/banner")
+   const res2 = await axios.get("/offerlogo")
    setProduct(res.data)
    setBanner(res1.data)
+   setOfferlogo(res2.data)
 }
 show()
 
 },[])
    
+console.log("offer logo");
+console.log(offerlogo);
 function productfun(data){
    return<>
    <div className="product" onClick={()=>nav("/detail",{state:data})}>
       <div className="product-offer">
+      <img src={offerlogo.image} className="offerlogo"/>
+
       </div>
       <div className="product-image">
    <img src={data.image} className="pro-image"/>

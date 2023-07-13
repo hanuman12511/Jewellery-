@@ -5,3 +5,8 @@
     {id:4,productname:"product",rate:200,image:'./img/Wire/w2/0MmtcEoWYn8UU-medium.jpg'},
     {id:5,productname:"product",rate:200,image:'./img/Wire/w2/0MmtcEoWYn8UU-medium.jpg'},
 ]
+const banner={image:'./img/Wire/banner.png'}
+const offerlogo ={image:'./img/Wire/offerlogo.png'}
+module.exports={
+    product,banner,offerlogo
+}

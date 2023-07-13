@@ -8,6 +8,7 @@ import Login from "../screen/Login";
 import Profile from "../screen/Profile";
 import OrderPlace from "../screen/OrderPlace";
 import Payment from "../screen/Payment";
+import Footer from "../component/Footer";
 
 export default function RoutersScreen(){
    const[user,setUser] = useState(localStorage.getItem('user'))
@@ -43,18 +44,12 @@ function logout(){
             
             <Route path="/addtocart" Component={Addtocart}/>
         </Routes>
-        <div className="homepage">
-            <Link className="link" href="/">Home</Link>
-            <Link className="link" href="/product">Product</Link>
-            
-            {user===null || user===false?<>
-            <Link className="link" href="/login">Login</Link>
-            <Link className="link" href="/register">Register</Link>
-            </>:<>            <button onClick={profile}>Profile</button>
-            <button onClick={logout}>Logout</button>
-            </>}
+      <div className="homepage"> 
+        <div className="footer">
+            <h2>Footer</h2>
+            <Footer/>
             </div>
-      
+      </div> 
      </>
     )
   }

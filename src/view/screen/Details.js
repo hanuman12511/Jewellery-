@@ -31,24 +31,39 @@ function Details() {
       nav("/Payment")
    }
    return (
-     <div>
-               <div className='w-75  p-3'>
-                  <img src={product.image} alt="" className="productimg" />
+   <div className="homepage">
+      <div className="inline-flex w-100 m-30">
+         <div className='detail-s-image'>
+                  <img src={product.image} alt="" className="img-100" />
+         </div>
+         <div className='detail-s-allimage'>
+               <div className='detail-s-shotimage m-20'>
+                  <img src={product.image} alt="" className="img-100" />
                </div>
-           
-               <div>
-                  <p><b><h2>{product.productname}</h2></b></p>
-                  <p><h4 className="text-danger">₹{product.rate}</h4></p>
-                  <p><h4 className="text-black"><del>₹{2*product.rate}</del></h4></p>
-                  <p>{product.Rating}</p>
-                  <p><h4>{product.description}</h4></p>
-                  <br />
-                  <br />
-                  {/* <button className="btn btn-primary mr-2 me-5">Buy Now </button> */}
-                  <button className="btn btn-success mr-2" id="btn" onClick={() => productaddtocart(product)}>Buy Now </button>
-                  <button className="btn btn-primary mr-2" id="btn" onClick={() => productaddtocart(product)}>Add to cart </button>
+               <div className='detail-s-shotimage m-20'>
+                  <img src={product.image} alt="" className="img-100" />
                </div>
+               <div className='detail-s-shotimage m-20'>
+                  <img src={product.image} alt="" className="img-100" />
                </div>
+               <div className='detail-s-shotimage m-20'>
+                  <img src={product.image} alt="" className="img-100" />
+               </div>
+         </div>
+         <div className='detail-s-text m-20'>
+               <button className="" id="btn" onClick={() => productaddtocart(product)}>Buy Now </button>
+               <button className="" id="btn" onClick={() => productaddtocart(product)}>Add to cart </button>
+           <hr/>  
+               <p>Product Name:<h2>{product.productname}</h2></p>
+               <p>Price :<h4 className="">₹{product.rate}</h4></p>
+               <p> MRP :<h4 className=""><del>₹{2*product.rate}</del></h4></p>
+               <p>{product.Rating}</p>
+               <p><h4>{product.description}</h4></p>
+               <hr/>  
+               
+                </div>
+             </div>
+      </div>
            
    );
 }
