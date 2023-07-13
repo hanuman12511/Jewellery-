@@ -1,12 +1,10 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { Container, Row, Col, Button } from "react-bootstrap"
 import { Link, useNavigate } from "react-router-dom"
 export default function Cart() {
 const nav=useNavigate()
     const [data, setData] = useState('')
     const [pay, setPay] = useState('')
-
     useEffect(() => {
         async function show() {
             let res = await axios.post('showtocart', {})
@@ -14,7 +12,7 @@ const nav=useNavigate()
             setData(res.data)
             let pay=0
             res.data.map(d=>{
-                pay+= parseInt(d.Price)
+                pay+= parseInt(d.rate)
             })
             console.log(pay);
             setPay(pay)
@@ -52,38 +50,53 @@ const nav=useNavigate()
 
 
     console.log(data);
-    return (
-     <div>
-        {
-          data ? data.map((d, index) => {
-            if (d !== false) {
-                return (
-                <div className="border mt-5 mb-4">
-                <div className="addtocartshow ">
-                <div className="addtocartshow-img">
-                <img src={d.image} style={{ height: '200px' }} />
+return (
+    <div className="homepage">
+         <div>
+         <h2>Product Add To Cart </h2> 
+         <hr />
+      </div>
+        <div className="inline-flex w-100">
+    <div className="w-50">
+   
+    {
+    data ? data.map((d, index) => {
+    if (d !== false) {
+        return (
+        <div className="w-100 ml-25">
+            <div className=" w-100 inline-flex">
+                <div className="w-40">
+                    <img src={d.image} className="w-100p" />
                  </div>
-                <div className="addtocartshow-text mt-3 ">
-                 <h5><p>{d.productname}</p></h5>
-                <h5> ₹<span className="cart-p"> {d.rate}</span></h5><br />
-                <h6><p className="disc">{d.Disc}</p></h6>
-                <h6>{d.description}</h6><br />
-                <h6><p>Qty:{1}</p></h6>
-                <Button className="remove mb-4" variant="outline-danger" onClick={() => removeitem(index)}>Remove</Button>
+                <div className="">
+                    <h5><p>{d.productname}</p></h5>
+                    <h5> ₹<span className=""> {d.rate}</span></h5>
+                    {/*<br /> <h6><p className="">{d.Disc}</p></h6>
+                    <h6>{d.description}</h6><br /> */}
+                    <h6><p>Qty:{1}</p></h6>
+                    <button className="" variant="outline-danger" onClick={() => removeitem(index)}>Remove</button>
                 </div>
-                <div className="addtocartshow-text mt-4">
-                </div>
-                </div>
-                </div>
+               
+            </div>
+            <hr />
+        </div>
                  )
                }
            }) : null
       }
-<div className="m-4 position-fixed bg-success w-25">
-<center> <Button onClick={()=>nav('/orderplace',{state:pay})}>Proceed to Payment</Button></center>
-     <p className="border m-4 p-4 text-light">
+      </div>
+<div className="w-40 bdr">
+    <div className="proceed-pay">
+    <center> 
+    <button onClick={()=>nav('/orderplace',{state:pay})}>Proceed to Payment</button>
+
+     <p className="">
         Total pay:{pay}
-</p></div>       
+        </p>   </center>
+        </div>
+    </div>  
+    
+    </div>     
 </div>
   )
 }

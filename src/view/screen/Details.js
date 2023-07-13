@@ -32,22 +32,25 @@ function Details() {
    }
    return (
    <div className="homepage">
+      <div>
+         <h2>Product Details</h2> 
+      </div>
       <div className="inline-flex w-100 m-30">
          <div className='detail-s-image'>
-                  <img src={product.image} alt="" className="img-100" />
+                  <img src={product.image} alt="" className="w -100" />
          </div>
          <div className='detail-s-allimage'>
                <div className='detail-s-shotimage m-20'>
-                  <img src={product.image} alt="" className="img-100" />
+                  <img src={product.image} alt="" className="w-100" />
                </div>
                <div className='detail-s-shotimage m-20'>
-                  <img src={product.image} alt="" className="img-100" />
+                  <img src={product.image} alt="" className="w-100" />
                </div>
                <div className='detail-s-shotimage m-20'>
-                  <img src={product.image} alt="" className="img-100" />
+                  <img src={product.image} alt="" className="w-100" />
                </div>
                <div className='detail-s-shotimage m-20'>
-                  <img src={product.image} alt="" className="img-100" />
+                  <img src={product.image} alt="" className="w-100" />
                </div>
          </div>
          <div className='detail-s-text m-20'>

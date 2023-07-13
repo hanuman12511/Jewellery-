@@ -92,9 +92,7 @@
 .detail-s-image{
     width: 40%;
 }
-.img-100{
-    width: 100%;
-}
+
 .detail-s-shotimage{
     width: 70px;
     height: 70px;
@@ -105,3 +103,6 @@
 }
 
 .detail-s-text{width: 40%;}
+
+.proceed-pay{
+}
