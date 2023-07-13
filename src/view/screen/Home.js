@@ -29,10 +29,10 @@ function productfun(data){
       </div>
       <div className="product-name">
          <div> 
-            <h5>{data.productname}</h5>
+            <h6>{data.productname}</h6>
          </div>
          <div>
-              <p><b>₹. {data.rate}/-</b></p>
+              <p><b>₹ {data.rate}/-</b></p>
          </div>
       
        

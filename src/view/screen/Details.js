@@ -31,14 +31,11 @@ function Details() {
       nav("/Payment")
    }
    return (
-      <Container>
-         <Row>
-            <Col lg={6}>
+     <div>
                <div className='w-75  p-3'>
                   <img src={product.image} alt="" className="productimg" />
                </div>
-            </Col>
-            <Col lg={6}>
+           
                <div>
                   <p><b><h2>{product.productname}</h2></b></p>
                   <p><h4 className="text-danger">₹{product.rate}</h4></p>
@@ -51,9 +48,8 @@ function Details() {
                   <button className="btn btn-success mr-2" id="btn" onClick={() => productaddtocart(product)}>Buy Now </button>
                   <button className="btn btn-primary mr-2" id="btn" onClick={() => productaddtocart(product)}>Add to cart </button>
                </div>
-            </Col>
-         </Row>
-      </Container>
+               </div>
+           
    );
 }
 
