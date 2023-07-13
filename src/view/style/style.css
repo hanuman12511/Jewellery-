@@ -59,3 +59,50 @@
 .product-name div p b{
     color: rgb(255, 0, 0);
 }
+.offerlogo{
+
+    width: 100px;
+}
+
+.footer{
+    width: 100%;
+    height: 300px;
+
+}
+.footer-main{
+    width: 100%;
+    height: auto;
+    background-color: rgb(104, 104, 104);
+    color: aliceblue;
+    
+
+}
+.footer-item{
+    width: 23%;
+    border: 1px solid rgb(213, 213, 213);
+    margin: auto;
+    
+
+}
+.inline-flex{
+    display: inline-flex;
+
+}
+
+.detail-s-image{
+    width: 40%;
+}
+
+.detail-s-shotimage{
+    width: 70px;
+    height: 70px;
+}
+.detail-s-allimage{
+    width: 12%;
+    background-color: rgb(169, 169, 169);
+}
+
+.detail-s-text{width: 40%;}
+
+.proceed-pay{
+}

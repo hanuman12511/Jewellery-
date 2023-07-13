@@ -4,30 +4,17 @@ const express = require('express')
 const cors = require("cors");
 const bodyParser = require('body-parser');
 const app = express()
-var mysql = require('mysql');
 app.use(express.json())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors())
+//read image
 app.use(express.static('public'));
 app.use('/img', express.static('img'));
 
 const fs = require('fs')
 const csv = require('fast-csv');
-const product = require('./data/data')
-
-console.log(__dirname);
-
-var con = mysql.createConnection({
-    host: "127.0.0.1",
-    user: "root",
-    password: "root"
-  });
-  
-  con.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
-  });
+const {product,banner, offerlogo} = require('./data/data')
   
 app.listen(8082,function(err,data){
     if(err)
@@ -35,28 +22,9 @@ app.listen(8082,function(err,data){
     console.log("server started port:8082");
 })
 
-
-
-app.post('/register',(req,res)=>{
-console.log(req.body);
-        res.send(req.body)
-})
-
-
-app.post('/login',(req,res)=>{
-
-    res.send("user login")
-})
-
-const data = []
- 
- fs.createReadStream('./product.csv')
-  .pipe(csv.parse({ headers: true }))
-  .on('error', error => console.error(error))
-  .on('data', row => data.push(row))
-  .on('end', () =>{});
-  //.on('end', () => console.log(data));
+app.get('/product',async(req,res)=>{
   
+<<<<<<< HEAD
  app.get('/product',async(req,res)=>{
     try {
         const data = fs.readFileSync('./data/data.js', 'utf8');
@@ -66,14 +34,23 @@ const data = []
       }
     res.send(data)
     //res.send(data)
+=======
+    res.send(product)
+   
+>>>>>>> ac971007274652227496473d83b2da651e7110d3
 })
 
 app.get('/banner',async(req,res)=>{
-    const banner={image:'./img/Wire/w2/0MmtcEoWYn8UU-medium.jpg'} 
+   
     res.send(banner)
-    //res.send(data)
+   
 })
 
+app.get('/offerlogo',async(req,res)=>{
+   
+    res.send(offerlogo)
+   
+})
 app.post("/removecartitem",function(req,res){
 
     try { fs.writeFileSync('./data/addtocart.json',"","utf8")

@@ -48,29 +48,29 @@ else{
 }
     return(
         <>
-       <Container className="m-5">
-        <Row>
-            <Col>
-            <h1 className="bg-primary text-light p-3">Payment</h1>
+       <div className="m-5">
+        <div>
+            <div>
+            <h1 className="">Payment</h1>
           
-            </Col>
-        </Row>
-        <Row>
-            <Col>
-            <div className="w-50 bg-success m-auto rounded p-3 text-light">
+            </div>
+        </div>
+        <div>
+            <div>
+            <div className="">
             <h4>Address</h4>
             <Form>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Group className="" controlId="formBasicEmail">
        
         <Form.Control type="email" placeholder="enter address" value={add} onChange={d=>setAdd(d.target.value)}/>
         
       </Form.Group>
       </Form>
       </div>
-      </Col>
-      </Row>
-        <Row>
-            <Col>
+      </div>
+      </div>
+        <div>
+            <div>
             <div className="w-50 bg-success m-auto rounded p-3 text-light">
             <h4>Bank Account Details</h4>
             <Form>
@@ -95,14 +95,14 @@ else{
        
      </Form.Group>
 
-      <Button variant="primary" onClick={paymentpage} >
+      <button variant="primary" onClick={paymentpage} >
         submit
-      </Button>
+      </button>
     </Form>
             </div>
-            </Col>
-        </Row>
-       </Container >
+            </div>
+        </div>
+       </div >
         </>
 
     )
