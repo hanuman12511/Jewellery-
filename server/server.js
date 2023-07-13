@@ -23,22 +23,8 @@ app.listen(8082,function(err,data){
 })
 
 app.get('/product',async(req,res)=>{
-  
-<<<<<<< HEAD
- app.get('/product',async(req,res)=>{
-    try {
-        const data = fs.readFileSync('./data/data.js', 'utf8');
-        console.log(data.product);
-      } catch (err) {
-        console.error(err);
-      }
-    res.send(data)
-    //res.send(data)
-=======
     res.send(product)
-   
->>>>>>> ac971007274652227496473d83b2da651e7110d3
-})
+  })
 
 app.get('/banner',async(req,res)=>{
    
