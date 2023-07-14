@@ -48,61 +48,26 @@ else{
 }
     return(
         <>
-       <div className="m-5">
+       <div className="homepage">
         <div>
-            <div>
-            <h1 className="">Payment</h1>
-          
-            </div>
+          <h1 className="">Payment</h1>
         </div>
-        <div>
-            <div>
-            <div className="">
+        <div className="">
             <h4>Address</h4>
-            <Form>
-      <Form.Group className="" controlId="formBasicEmail">
-       
-        <Form.Control type="email" placeholder="enter address" value={add} onChange={d=>setAdd(d.target.value)}/>
-        
-      </Form.Group>
-      </Form>
-      </div>
-      </div>
-      </div>
-        <div>
-            <div>
-            <div className="w-50 bg-success m-auto rounded p-3 text-light">
-            <h4>Bank Account Details</h4>
-            <Form>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-       
-        <Form.Control type="email" placeholder="Bank Account Number" value={acno} onChange={d=>setAcno(d.target.value)}/>
-        
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-       
-       <Form.Control type="email" placeholder="IFSC"  value={fsc} onChange={d=>setFsc(d.target.value)}/>
-       
-     </Form.Group>
-     <Form.Group className="mb-3" controlId="formBasicEmail">
-       
-       <Form.Control type="email" placeholder="Account Holder Name"  value={acname} onChange={d=>setAcname(d.target.value)}/>
-       
-     </Form.Group>
-     <Form.Group className="mb-3" controlId="formBasicEmail">
-       
-       <Form.Control type="text" value={`Rs.${pay}`}  disabled/>
-       
-     </Form.Group>
-
-      <button variant="primary" onClick={paymentpage} >
+        <input type="email" placeholder="enter address" value={add} onChange={d=>setAdd(d.target.value)}/>
+        </div>
+        <div className="">
+        <h4>Bank Account Details</h4>
+        <input type="email" placeholder="Bank Account Number" value={acno} onChange={d=>setAcno(d.target.value)}/>
+        <input type="email" placeholder="IFSC"  value={fsc} onChange={d=>setFsc(d.target.value)}/>
+        <input type="email" placeholder="Account Holder Name"  value={acname} onChange={d=>setAcname(d.target.value)}/>
+        <input type="text" value={`Rs.${pay}`}  disabled/>
+        <button variant="primary" onClick={paymentpage} >
         submit
       </button>
-    </Form>
-            </div>
-            </div>
-        </div>
-       </div >
+      </div>
+      </div>
+       
         </>
 
     )

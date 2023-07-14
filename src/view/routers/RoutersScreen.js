@@ -1,4 +1,4 @@
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Home from "../screen/Home";
 import Register from "../screen/Register";
@@ -7,13 +7,16 @@ import Details from "../screen/Details";
 import Login from "../screen/Login";
 import Profile from "../screen/Profile";
 import OrderPlace from "../screen/OrderPlace";
-import Payment from "../screen/Payment";
 import Footer from "../component/Footer";
+import Product from "../screen/Product";
+import Header from "../component/Header";
 
 export default function RoutersScreen(){
+   const nav = useNavigate()
    const[user,setUser] = useState(localStorage.getItem('user'))
 function profile(){
    console.log("profile");
+   nav("/profile")
 }
 function logout(){
    console.log("logout");
@@ -24,16 +27,21 @@ function logout(){
      <>
      <div className="mainpage">
      <div className="homepage">
-            <Link className="link" href="/">Home</Link>
-            <Link className="link" href="/product">Product</Link>
+      <Header/>
+      <div className="navbar1">
+            <Link className="link" to="/">Home</Link>
+            <Link className="link" to="/product">Product</Link>
             
-            {user===null || user===false?<>
-            <Link className="link" href="/login">Login</Link>
-            <Link className="link" href="/register">Register</Link>
-            </>:<>            <button onClick={profile}>Profile</button>
+            {user===null ?<>
+            <Link className="link" to="/login">Login</Link>
+            <Link className="link" to="/register">Register</Link>
+            </>:
+            <>
+            <button onClick={profile}>Profile</button>
             <button onClick={logout}>Logout</button>
             </>}
-            </div>
+      </div>
+         </div>
       </div>
         <Routes>
             <Route path="/" Component={Home}/>
@@ -41,12 +49,13 @@ function logout(){
             <Route path="/detail" Component={Details}/>
             <Route path="/orderplace" Component={OrderPlace}/>
             <Route path="/login" Component={Login}/>
-            
+            <Route path="/profile" Component={Profile}/>
             <Route path="/addtocart" Component={Addtocart}/>
+            <Route path="/product" Component={Product}/>
         </Routes>
       <div className="homepage"> 
         <div className="footer">
-            <h2>Footer</h2>
+            <h3>Footer</h3>
             <Footer/>
             </div>
       </div> 

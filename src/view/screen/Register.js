@@ -49,35 +49,24 @@ function Register() {
         setName("")
     }
     return (
-        <Container>
-            <Row>
-                <Col>
-                    <Form>
+      <div className='homepage'>
                         <h2 class="h1-responsive font-weight-bold text-center my-4">Register</h2>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>Enter Name</Form.Label>
-                            <Form.Control type="name" placeholder="Enter Name" value={name} onChange={(d) => setName(d.target.value)} />
-                            <Form.Text className="text-muted">
-                            </Form.Text>
-                            <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" value={email} onChange={(d) => setEmail(d.target.value)} />
-                            <Form.Text className="text-muted">
-                            </Form.Text>
-                        </Form.Group>
+                            <label>Enter Name</label>
+                            <input type="name" placeholder="Enter Name" value={name} onChange={(d) => setName(d.target.value)} />
+                           
+                            <label>Email address</label>
+                            <input type="email" placeholder="Enter email" value={email} onChange={(d) => setEmail(d.target.value)} />
+                           
 
-                        <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" value={password} onChange={(d) => setPassword(d.target.value)} />
-                        </Form.Group>
+                        <label>Password</label>
+                            <input type="password" placeholder="Password" value={password} onChange={(d) => setPassword(d.target.value)} />
+                      
                         <div className='btn'>
-                            <Button variant="primary" onClick={submitregister}>
+                            <button variant="primary" onClick={submitregister}>
                                 Register
-                            </Button>
+                            </button>
                         </div>
-                    </Form>
-                </Col>
-            </Row>
-        </Container>
+</div>
     );
 }
 

@@ -4,7 +4,7 @@
 }
 .homepage{
     width: 950px;
-    background-color: antiquewhite;
+   
     margin: auto;
     height: auto;
 }
@@ -72,7 +72,7 @@
 .footer-main{
     width: 100%;
     height: auto;
-    background-color: rgb(104, 104, 104);
+    background-color: rgb(96, 60, 1);
     color: aliceblue;
     
 
@@ -104,5 +104,62 @@
 
 .detail-s-text{width: 40%;}
 
-.proceed-pay{
+.navbar1{
+padding: 20px;
+
+}
+.navpagetop{
+    width: 100%;
+    height: auto;
+    background-color: rgb(96, 60, 1);
+  padding: 15px;
+
+}
+.navpagetop p{
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+
+.similar{
+   background-color: rgb(201, 199, 199);
+    align-items: center;
+    justify-content: space-between;
+   width: 100%;
+}
+.similar-product{
+    width: 200px;
+    height: 200px;
+    background-color: aquamarine;
+    margin-left: 10px;
+
+}
+.mid-pro{
+    width: 70%;
+margin: 20px;
+
+overflow: hidden;
+}
+.left-arrow{
+
+    width: 5%;
+    height: 100%;
+   
+}
+.left-arrow img{
+    width: 100%;
+}
+.right-arrow img{
+    width: 100%;
+}
+.right-arrow{
+    width: 5%;
+    height: 100%;
+    width: 5%;
+  
+
+}
+.similar-product img{
+    width: 100%;
+    height: 100%;
 }
