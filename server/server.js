@@ -23,10 +23,8 @@ app.listen(8082,function(err,data){
 })
 
 app.get('/product',async(req,res)=>{
-  
     res.send(product)
-   
-})
+  })
 
 app.get('/banner',async(req,res)=>{
    
