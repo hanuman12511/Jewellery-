@@ -4,10 +4,11 @@ const express = require('express')
 const cors = require("cors");
 const bodyParser = require('body-parser');
 const app = express()
+app.use(cors())
 app.use(express.json())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors())
+
 //read image
 app.use(express.static('public'));
 app.use('/img', express.static('img'));
@@ -27,19 +28,14 @@ app.get('/product',async(req,res)=>{
   })
 
 app.get('/banner',async(req,res)=>{
-   
     res.send(banner)
-   
-})
 
+})
 app.get('/offerlogo',async(req,res)=>{
-   
     res.send(offerlogo)
-   
-})
+ })
 app.post("/removecartitem",function(req,res){
-
-    try { fs.writeFileSync('./data/addtocart.json',"","utf8")
+  try { fs.writeFileSync('./data/addtocart.json',"","utf8")
     } catch (error) {
             console.log("er");
             console.log(error);    
@@ -49,9 +45,7 @@ app.post("/removecartitem",function(req,res){
         result = fs.appendFileSync('./data/addtocart.json', JSON.stringify(d),"utf8")
             fs.appendFileSync('./data/addtocart.json', "\n","utf8")
        })
-
-       
-          let resultdata=""
+        let resultdata=""
       if(!result){
           resultdata={success:true,message:"Product remove to cart."}
       }
@@ -61,13 +55,7 @@ app.post("/removecartitem",function(req,res){
       }
       res.send(resultdata) 
 })
-
-
-
-
 app.post('/payment',function(req,res){
-  
-  
     let result=fs.appendFileSync('./data/payment.json', JSON.stringify(req.body),"utf8")
      fs.appendFileSync('./data/payment.json', "\n","utf8")
      let resultdata=""
@@ -80,11 +68,6 @@ app.post('/payment',function(req,res){
      }
      res.send(resultdata)
   })
- 
-
-
-
-
 app.post('/addtocart',function(req,res){
     let result = fs.appendFileSync('./data/addtocart.json', JSON.stringify(req.body),"utf8")
     fs.appendFileSync('./data/addtocart.json', "\n","utf8") 
@@ -100,9 +83,6 @@ app.post('/addtocart',function(req,res){
     res.send(resultdata)
     
  })
-
-
-
  app.post('/showtocart',function(req,res){
     let data=fs.readFileSync('./data/addtocart.json',"utf8")
     let adddata=[]
@@ -121,6 +101,5 @@ app.post('/addtocart',function(req,res){
                 cartitem.push(d);
         }
     })
-   
-    res.send(add1)
+      res.send(add1)
  })
