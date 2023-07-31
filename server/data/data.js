@@ -1,12 +1,12 @@
  const product=[
-    {id:1,productname:"product",rate:200,image:'./img/Wire/w1/FBhreGegmXlbN-medium.jpg'},
-    {id:2,productname:"product",rate:200,image:'./img/Wire/w2/0MmtcEoWYn8UU-medium.jpg'},
-    {id:3,productname:"product",rate:200,image:'./img/Wire/w2/0MmtcEoWYn8UU-medium.jpg'},
-    {id:4,productname:"product",rate:200,image:'./img/Wire/w2/0MmtcEoWYn8UU-medium.jpg'},
-    {id:5,productname:"product",rate:200,image:'./img/Wire/w2/0MmtcEoWYn8UU-medium.jpg'},
+    {id:1,productname:"Nomads (Hardback)",rate:551,image:'../img/Do Epic Shit (Hardcover).jpg'},
+    {id:2,productname:"It Ends with Us (Paperback)",rate:302,image:'../img/Do Epic Shit (Hardcover).jpg'},
+    {id:3,productname:"Your Time Will Come (Paperback)",rate:119,image:'../img/Do Epic Shit (Hardcover).jpg'},
+    {id:4,productname:"Do Epic Shit (Hardcover)",rate:290,image:'../img/Do Epic Shit (Hardcover).jpg'},
+    {id:5,productname:"The Complete Novels of Sherlock Holmes (Paperback)",rate:560,image:'../img/Do Epic Shit (Hardcover).jpg'},
 ]
-const banner={image:'./img/Wire/banner.png'}
-const offerlogo ={image:'./img/Wire/offerlogo.png'}
+const banner={image:''}
+const offerlogo ={image:''}
 module.exports={
     product,banner,offerlogo
 }
